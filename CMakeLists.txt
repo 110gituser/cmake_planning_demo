@@ -20,5 +20,15 @@ set(Process_Dir ${PROJECT_SOURCE_DIR}/src/process)
 set(PNC_Map_Dir ${PROJECT_SOURCE_DIR}/src/pnc_map)
 set(Show_Result_Dir ${PROJECT_SOURCE_DIR}/src/show_ressult)
 
+#三方库
+set(EIGEN3_INCLUDE_DIR "E:/algo/cpp/eigen/eigen-3.4.0")
+list(APPEND CMAKE_MODULE_PATH "${EIGEN3_INCLUDE_DIR}/cmake")
+message("CMAKE_MOUDLE_PATH = ${CMAKE_MOUDLE_PATH}")
+
+find_package(Eigen3 REQUIRED)
+if(TARGET Eigen3::Eigen)
+    message(STATUS "found eigen")
+endif()
+
 # 添加 src 子目录，其中应包含一个 CMakeLists.txt 来处理各个模块（如 process 和 pnc_map）
 add_subdirectory(src)
