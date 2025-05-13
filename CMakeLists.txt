@@ -11,6 +11,7 @@ project(planning
 
 # 设置 C++ 标准为 C++17
 set(CMAKE_CXX_STANDARD 17)
+enable_testing()
 
 # 设置可执行文件输出目录为 bin 目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
@@ -32,3 +33,4 @@ endif()
 
 # 添加 src 子目录，其中应包含一个 CMakeLists.txt 来处理各个模块（如 process 和 pnc_map）
 add_subdirectory(src)
+add_subdirectory(test/map_test)

@@ -6,7 +6,7 @@ using Eigen::MatrixXd;
 
 void Process::planProcess(){
     cout<<"this is planing process"<< endl;
-    my_map.mapInfo();
+    my_map.map_info();
 
     MatrixXd m(2,2);
     m(0,0) = 3;
