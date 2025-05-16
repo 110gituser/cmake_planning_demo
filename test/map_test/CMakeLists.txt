@@ -1,5 +1,4 @@
-# 定义一个名为 map_test 的项目
-project(map_test)
+project(map_test) # 定义一个名为 map_test 的项目
 
 # 添加一个可执行文件 map_test，由 map_test.cpp 和 pnc_map.cpp 编译而成
 # map_test.cpp 是主程序，包含 main() 函数

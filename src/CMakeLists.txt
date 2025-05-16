@@ -1,17 +1,10 @@
-# 定义一个名为 planning_main 的 CMake 项目
-project(planning_main)
+project(planning_main) # 定义一个名为 planning_main 的 CMake 项目
 
-# 添加子目录 pnc_map，会递归调用该目录下的 CMakeLists.txt
-add_subdirectory(pnc_map)
+add_subdirectory(pnc_map) # 添加子目录 pnc_map，会递归调用该目录下的 CMakeLists.txt
+add_subdirectory(process) # 添加子目录 process，同样会处理该目录下的 CMakeLists.txt
+add_subdirectory(show_result) # 添加子目录 show_result，同样会处理该目录下的 CMakeLists.txt
 
-# 添加子目录 process，同样会处理该目录下的 CMakeLists.txt
-add_subdirectory(process)
-
-# 添加子目录 show_result，同样会处理该目录下的 CMakeLists.txt
-add_subdirectory(show_result)
-
-# 创建一个可执行文件，文件名为 ${PROJECT_NAME}（即 planning_main）
-# 使用的源文件是 planning_main.cpp
+# 创建一个可执行文件，名为 ${PROJECT_NAME}（planning_main）使用的源文件是 planning_main.cpp
 add_executable(${PROJECT_NAME} planning_main.cpp)
 
 # 指定可执行文件的头文件搜索路径
@@ -21,14 +14,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/show_result  # show_result 目录的头文件路径
 )
 
-# 将 process 这个库链接到当前可执行文件上
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-    process
-)
+target_link_libraries(${PROJECT_NAME} PUBLIC process) # 将process这个库链接到当前可执行文件上
 
 # 将 show_result 这个库链接到当前可执行文件上
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-    show_result
-)
+target_link_libraries(${PROJECT_NAME} PUBLIC show_result)
